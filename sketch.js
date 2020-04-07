@@ -35,22 +35,22 @@ function gotResults(error, results) {
 
   
   select('#res').html(`${results[0].label}, ${(results[0].confidence * 100).toFixed(2)}%`);
-
+  
  
-  select('#1').html(`${(results.find(label => 'Bronchial Breats').confidence * 100).toFixed(2)} %`);
-  select('#1bar').style('width', `${(results.find(label => 'Bronchial Breats').confidence * 100).toFixed(2)}%`);
-  select('#2').html(`${(results.find(label => 'Coarse Crackles (Rales) ').confidence * 100).toFixed(2)} %`);
-  select('#2bar').style('width', `${(results.find(label => 'Coarse Crackles (Rales) ').confidence * 100).toFixed(2)}%`);
-  select('#3').html(`${(results.find(label => 'Fine Crackles (Rales)').confidence * 100).toFixed(2)} %`);
-  select('#3bar').style('width', `${(results.find(label => 'Fine Crackles (Rales)').confidence * 100).toFixed(2)}%`);
-  select('#4').html(`${(results.find(label => 'Rhonchi ').confidence * 100).toFixed(2)} %`);
-  select('#4bar').style('width', `${(results.find(label => 'Rhonchi ').confidence * 100).toFixed(2)}%`);
-  select('#5').html(`${(results.find(label => 'Wheezing (expiratory) ').confidence * 100).toFixed(2)} %`);
-  select('#5bar').style('width', `${(results.find(label => 'Wheezing (expiratory) ').confidence * 100).toFixed(2)}%`);
-  select('#6').html(`${(results.find(label => 'Normal').confidence * 100).toFixed(2)} %`);
-  select('#6bar').style('width', `${(results.find(label => 'Normal').confidence * 100).toFixed(2)}%`);
-  select('#7').html(`${(results.find(label => 'Stridor').confidence * 100).toFixed(2)} %`);
-  select('#7bar').style('width', `${(results.find(label => 'Stridor').confidence * 100).toFixed(2)}%`);
+  select('#1').html(`${(results.find(s => s.label == "Bronchial Breats").confidence * 100).toFixed(2)} %`);
+  select('#1bar').style('width', `${(results.find(s => s.label == "Bronchial Breats").confidence * 100).toFixed(2)}%`);
+  select('#2').html(`${(results.find(s => s.label == "Coarse Crackles (Rales) ").confidence * 100).toFixed(2)} %`);
+  select('#2bar').style('width', `${(results.find(s => s.label == "Coarse Crackles (Rales) ").confidence * 100).toFixed(2)}%`);
+  select('#3').html(`${(results.find(s => s.label == "Fine Crackles (Rales)").confidence * 100).toFixed(2)} %`);
+  select('#3bar').style('width', `${(results.find(s => s.label == "Fine Crackles (Rales)").confidence * 100).toFixed(2)}%`);
+  select('#4').html(`${(results.find(s => s.label == "Rhonchi ").confidence * 100).toFixed(2)} %`);
+  select('#4bar').style('width', `${(results.find(s => s.label == "Rhonchi ").confidence * 100).toFixed(2)}%`);
+  select('#5').html(`${(results.find(s => s.label == "Wheezing (expiratory) ").confidence * 100).toFixed(2)} %`);
+  select('#5bar').style('width', `${(results.find(s => s.label == "Wheezing (expiratory) ").confidence * 100).toFixed(2)}%`);
+  select('#6').html(`${(results.find(s => s.label == "Normal").confidence * 100).toFixed(2)} %`);
+  select('#6bar').style('width', `${(results.find(s => s.label == "Normal").confidence * 100).toFixed(2)}%`);
+  select('#7').html(`${(results.find(s => s.label == "Stridor").confidence * 100).toFixed(2)} %`);
+  select('#7bar').style('width', `${(results.find(s => s.label == "Stridor").confidence * 100).toFixed(2)}%`);
 
 
 
@@ -85,8 +85,8 @@ function gotResults(error, results) {
   }
 
   //end
-	
-	  if(countnon>99 || count1>99 || count2>99 || count3>99){
+  
+    if(countnon>99 || count1>99 || count2>99 || count3>99){
 			countnon=0;
 			count1=0;
 			count2=0;
@@ -124,7 +124,8 @@ function gotResults(error, results) {
 
         chart.draw(datadraw, optionsdraw);
 
-     
+      
+		
         setInterval(function() {
 		  datadraw.setValue(0, 1, countnon);
           datadraw.setValue(1, 1, count1);
@@ -133,3 +134,6 @@ function gotResults(error, results) {
           chart.draw(datadraw, optionsdraw);
         }, 1000);
       }
+	  
+	  
+	  
