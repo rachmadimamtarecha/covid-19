@@ -85,6 +85,13 @@ function gotResults(error, results) {
   }
 
   //end
+	
+	  if(countnon>99 || count1>99 || count2>99 || count3>99){
+			countnon=0;
+			count1=0;
+			count2=0;
+			count3=0;
+		}
 
   }
   
