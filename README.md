@@ -1,4 +1,4 @@
-# covid-19 sound classifier using ml5.js
+# covid-19 sound classifier
 
 Please help us to make this engine better, there is some issues need to be solved:
 1. Need better data training
